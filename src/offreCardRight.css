@@ -1,0 +1,187 @@
+
+  .offre_card  {
+padding: 25px;
+   
+  }
+  .offre_card_header {
+    display: flex;
+ 
+    
+  }
+  .offre_card_header > img {
+   
+    margin-top: 10px;
+
+  }
+  .pencil{
+    color: gray;
+    height: 40px !important;
+    width: 40px !important;
+    cursor: pointer;
+    margin-top: 10px;
+    display: flex;
+    border-radius: 80px;
+    align-items: center;
+    }
+   
+   
+    .pencil__icon{
+      height: 35px !important;
+      width: 30px !important;
+      margin-left: 5px;
+    }
+    .pencil:hover{
+      
+      background-color: rgb(242, 238, 238) !important;
+    }
+  .offre_card_info {
+   padding-left: 20px;
+   margin-right: 10px;
+   width: 320px;
+   
+  }
+  .offre_card_info > h2 {
+   
+    line-height: 1.5;
+    font-size: 1.7rem;
+    font-weight: normal;
+    cursor: pointer;
+   
+  }
+  .offre_card_info > h2:hover{
+    text-decoration-line: underline
+  }
+  .offre_card_info > p {
+    font-size: 16px  !important;
+    
+    color : rgba(0,0,0,0.6);
+    line-height: 1.6;
+ 
+  }
+  .offre_card_info > p:hover{
+    text-decoration-line: underline;
+    cursor: pointer;
+  }
+  .btn {
+    background-color: #eb0392 ;
+     color : white ;
+     padding-left:  1.2rem;
+     padding-right: 1.2rem;
+     font-weight:bold;
+     font-size : 100%;
+     border-radius :20px;
+     border:none;
+     margin-top: 0px;
+      height:40px ;
+      margin-right:8px ;
+      cursor: pointer;
+      
+  }
+  @keyframes example {
+    0%   { color:  white;
+           box-shadow: inset 0 0 0 1px white;}
+  
+    100% { color:  #eb0392;
+      box-shadow: inset 0 0 0 1px #eb0392;}
+  }
+  .btn2{
+     padding-left:  1.2rem;
+     padding-right: 1.2rem;
+     font-weight:bold;
+     font-size : 100%;
+     border-radius :20px;
+     border:none;
+     align-items: center;
+     height:40px ;
+     margin-right:8px ;
+     cursor: pointer;
+     background-color: white;
+     color:  #eb0392;
+     box-shadow: inset 0 0 0 1px #eb0392;
+     animation: example 834ms ;
+  }
+  .btn2:hover{
+    background-color: #ffd1ed;
+    box-shadow:inset 0 0 0 2px #eb0392
+  }
+  .btn:hover {
+   background-color: #ad066d;
+   color: white;
+  }
+  .offre_card_footer {  
+    padding: 20px;
+ 
+  }
+  .offre_description{
+    padding-top: 10px;
+    padding-left: 20px;
+  }
+  .offre_description >h5 { 
+
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .desc {
+
+    margin-top: 15px;
+    line-height: 1.5;
+    font-size: 14px;
+    font-weight: 400;
+    
+  }
+  .company_details{
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  
+    background-color: white ;
+    padding: 16px;
+  }
+  .company_details>h3{
+    font-size: 19px;
+    font-weight: 500;
+  }
+  .mapWrapper {
+    width: auto;
+    height: 500px;
+    border-radius: 30px;
+    padding: 10px;
+  }
+  .offre_description_details{
+
+    columns: auto 2;
+    margin-top: 15px;
+  }
+  .offre_box{
+
+    break-inside: auto;
+  }
+  .offre_box > h3{
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+  .offre_box > p{
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+  .link{
+   display: flex;
+   align-items: center;
+  }
+  .link>a{
+    font-weight:700 ;
+    font-size:14px; 
+    text-decoration: none;
+    color: black;
+  }
+  .link>a:hover{
+   
+    color: #eb0392;
+  }
+  .link:hover{
+    text-decoration: underline;
+    color: #eb0392;
+  }
+  

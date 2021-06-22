@@ -1,0 +1,102 @@
+.Update {
+    position: fixed;
+    z-index: 203;
+    background-color: white;
+    width: 700px;
+    height: 550px;
+    max-height: 550px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px black;
+    left: 26%;
+    display: grid;
+    top: 20%;
+    overflow-y: scroll;
+    transition: all 0.3s ease-out;
+}
+.update__image{
+  color: #eb0392;
+  background-color: white;
+  height: 30px !important;
+  width: 30px !important;
+  cursor: pointer;
+  box-shadow: 0 2px 3px rgb(0 0 0 / 20%);
+  display: flex;
+  border-radius: 80px;
+  align-items: center;
+  position: absolute;
+  left: 20%;
+  top:37%
+  
+  }
+  .pencil__icon_image{
+    height: 25px !important;
+    width: 20px !important;
+    margin-left: 5px;
+  }
+
+.img {
+
+    width:700px;
+    height: 160px;
+    
+  
+  }
+.label {
+    color: gray;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.7;
+}
+.input {
+    width: 99%;
+    height: 30px;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 17px;
+    border-radius: 3px;
+    border: 1px solid black;
+    outline-color: #eb0392;
+}
+
+
+  .but{
+    background: #eb0392 none repeat scroll 0 0;
+    border-color: #eb0392;
+    color: #ffffff;
+    margin-top : 50px;
+    border: none;
+    font-size: 17px;
+    width: 20%;
+    height: 40px;
+    /* line-height: 50px; */
+    padding: 10px; 
+    margin : 10px ;
+    border-radius: 20px;
+   cursor: pointer;
+   margin-left: 80%;
+  }
+  .butt{
+    background: white none repeat scroll 0 0;
+    border-color: #eb0392;
+    color: #eb0392;
+    font-size: 17px;
+    width: 30%;
+    height: 40px;
+    /* line-height: 50px; */
+     padding: 10px; 
+    border-radius: 20px;
+   cursor: pointer;
+  }
+
+  .but:hover {
+    background: rgb(126, 4, 79);
+  }
+  
+
+  
+
+ 
+ 
+  
+
