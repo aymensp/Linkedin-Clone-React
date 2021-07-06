@@ -7,8 +7,8 @@ import {url} from './BaseUrl';
 
 function HeaderOption({ avatar, Icon,Border, title, onClick }) {
 
-    const userr = localStorage.getItem('user')
-    const currentUser = JSON.parse(userr);
+
+    const currentUser = useSelector(selectUser);
     return (
         <div>
        { Border? 

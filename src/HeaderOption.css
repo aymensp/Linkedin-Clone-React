@@ -31,8 +31,9 @@
 }
 
 .headerOption:hover {
-  color: #eb0392;
+  color: black;
 }
+
 .headerOption__border:hover {
-  color: #eb0392;
+  color: black;
 }

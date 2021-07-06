@@ -1,31 +1,52 @@
-import axios from 'axios';
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { login } from './features/userSlice';
-import {url} from './BaseUrl';
-import logo from './assets/logo.png'
+import { useDispatch, useSelector } from 'react-redux'
+import { login, selectUser } from './features/userSlice';
+import {auth, db} from './firebase';
+import logo from './assets/Linkedin-logo.png'
 import './Login.css'
 import { useHistory } from 'react-router';
 
 function Login() {
   let history = useHistory();
     const [password, setPassword] = useState('');
-    const [name, setName] = useState('');
-  const loginToApp = (e) => {
-        e.preventDefault();
-        axios.post(`${url}auth/login`, {
-            username: name,
-            password: password
-          })
-          .then((response) => {
-          localStorage.setItem('user',JSON.stringify(response.data)) 
-          console.log(response.data)
-          response.data.role === 'ADMIN' ? history.push('admin') :
-          history.push('/')     
-        }, (error) => {
-            console.log(error);
-        });
-  }
+    const [email, setEmail] = useState('');
+    const [user,setUser] = useState();
+    const dispatch = useDispatch();
+
+    const loginToApp = e => {
+      e.preventDefault();
+      auth.signInWithEmailAndPassword(email, password)
+        .then(() => {
+          db.collection('users').doc('dOJftmcz9CPnQBQMCH6DE1qnNDC3').get()
+          .then(snapshot => {
+            setTimeout(()=>{
+              dispatch(login({
+                email: email,
+                username: snapshot.data().username,
+                firstName : snapshot.data().firstName,
+                lastName :snapshot.data().lastName,
+                position :snapshot.data().position,
+                company : snapshot.data().company,        
+                role : snapshot.data().role,
+                address: snapshot.data().address,
+                phoneNumber :snapshot.data().phoneNumber,
+              }))
+            },2000)
+         
+          }).then(
+            setTimeout(()=>
+            {
+              history.push('/')
+            },4000)
+         
+          )
+          .catch(err => {
+            console.log('Error getting documents', err);
+          });
+         
+        })
+        .catch(error => alert(error));
+    };
    return (
      <div className="background">
 
@@ -33,11 +54,11 @@ function Login() {
             <img src={logo} alt=""/>
             
             <form>
-                <input value={name} onChange={e => setName(e.target.value)} placeholder="Usename" type="text"/>
+                <input value={email} onChange={e => setEmail(e.target.value)} placeholder="Usename" type="text"/>
                 <input value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" type="password"/>
                 <button type="submit" onClick={loginToApp}>Sign In</button>
             </form>
-           <p>New to AutoHire? <a href='/signup' className="aa"> Join now</a></p>
+           <p>New to Linkedin? <a href='/signup' className="aa"> Join now</a></p>
         </div>
      </div>
       

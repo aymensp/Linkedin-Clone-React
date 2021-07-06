@@ -15,8 +15,6 @@ setHamma(<List  rh={rh}/>);
 },[rh])
 return(
     
-  
-
     <div className="app">
     <Header />
        

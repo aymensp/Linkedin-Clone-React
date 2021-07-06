@@ -8,29 +8,6 @@
   
 
 }
-.searchBar {
-  min-height: 60px;
-  display: flex;
-  background-color: white;
-  border-bottom: 0.1px solid lightgray;
-  width: 100%;
-  position: sticky;
-  z-index: 10;
-  top: 6%;
-  align-items: center;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
-}
-.items{
-display: flex;
-position: relative;
-align-items: center;
-
-flex-wrap: wrap;
-margin: auto;
-
-
-}
-
 
 .filter_button{  height: 35px;
   

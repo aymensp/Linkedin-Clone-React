@@ -4,7 +4,7 @@ import './offresCardLeft.css'
 import  timeago from './time'
 import {url} from "./BaseUrl"
 
-const OffreCardsLeft = forwardRef(({ title, company, addresse, date ,users, link }) => {
+const OffreCardsLeft = forwardRef(({ title, company, addresse, date ,users, link },ref) => {
   
     const [dateNow, setDate] = useState(date)
     const [candiates, setCandidates] = useState(0)
@@ -57,24 +57,15 @@ const OffreCardsLeft = forwardRef(({ title, company, addresse, date ,users, link
         <div  className="offre">
 
            <div className="offre__header">
-                <img style={{width:'50px' , height:'50px'}} src={
-                    link?
-                    logo:
-                    `${url}images/${company}.png`
-                    
-                    } alt="company"></img>
+                <img style={{width:'50px' , height:'50px'}} src={logo } alt="company"></img>
                 <div className="offre__info">
                     <h3>{title}</h3>
                     <p >{company}</p>
                     <p >{addresse}</p>
                     <div style={{   display: 'flex' , marginTop:'2px'}}>
-                        <p style={{ color : 'rgba(0,0,0,0.6)' , fontSize:'12px' ,marginRight:'8px'}}>
-                         {dateNow}
-                        </p>
-                        {candiates!==0?
-                            <p style={{ color : '#eb0392' , fontSize:'13px' }}> {candiates} candidats</p>
-                        :
-                        <p style={{ color : '#eb0392' , fontSize:'13px' }}> Be the first applicant</p>}
+                     
+                      
+                        <p style={{ color : '#057642' , fontSize:'13px' }}> Be the first applicant</p>
 
                     </div>
                 </div>

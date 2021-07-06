@@ -12,7 +12,9 @@ import {FacebookShareButton,FacebookIcon, LinkedinShareButton, LinkedinIcon} fro
 import ShowMoreText from 'react-show-more-text';
 
 
-const offreCardRight = forwardRef(({id, title, company, addresse, date , description  ,salary,industry, poste , jobTime , type,creator,users ,saves,link  }) => {
+const offreCardRight = forwardRef(
+    (
+        {id, title, company, addresse, date , description  ,salary,industry, poste , jobTime ,creator,users ,saves,link  } ,ref) => {
     const userr = localStorage.getItem('user')
     const currentUser = JSON.parse(userr); 
     const Capitalize =(str) =>{
@@ -137,37 +139,24 @@ const offreCardRight = forwardRef(({id, title, company, addresse, date , descrip
        <Auxiliary>
            <div style={{borderBottom:'1px solid rgba(0,0,0,0.08)'}} className="offre_card">
            <div className="offre_card_header">
-     <img style={{width:'120px' , height:'120px'}} src={link?
-                    logo:
-                    `${url}images/${company}.png`} alt='hamma'></img>
+     <img style={{width:'120px' , height:'120px'}} src={
+                    logo
+                    } alt='hamma'></img>
      <div className="offre_card_info">
          <h2>{title}</h2>
          <p onClick={()=>Navigate(company)} >{company}</p>
          <p style={{textDecoration:'none',cursor:'auto'}} >{addresse}</p>
          <div style={{   display: 'flex' , marginTop:'2px'}}>
-             <p style={{ color : 'rgba(0,0,0,0.6)' , fontSize:'13px' ,lineHeight:'1.7',marginRight:'8px'}}>
-              {dateNow}
-             </p>
-            { candiates.length!==0? 
-            <p style={{ color : '#eb0392' , fontSize:'13px',lineHeight:'1.7' }}> {candiates.length} candidats</p> 
-        :
-        <p style={{ color : '#eb0392', fontSize:'13px',lineHeight:'1.7' }}> Be the first applicant</p> }
+          
+    
+        <p style={{ color : '#057642', fontSize:'13px',lineHeight:'1.7' }}> Be the first applicant</p> 
          </div>  
-       {candiates.includes(currentUser._id)?
-     <div style={{   display: 'flex',flexWrap:'wrap' ,alignItems:'center', marginTop:'10px'}}> 
-     <CheckCircleIcon style={{color:'green',width:'20px',height:'20px'}}/>
-     <p style={{fontWeight:'700',color:'green',marginRight:'15px',fontSize:'14px'}}>Already applied    </p>
-     <div className='link'>
-     <a  href='/myJobs' >See application</a>
-     <ChevronRightIcon />
-     </div>
-      </div>
-       :
+  
        <div style={{   display: 'flex',flexWrap:'wrap' , marginTop:'10px'}}> 
-      {link? <a href={link} > <button className="btn" >Apply on TanitJobs</button></a>: <button onClick={ Apply} className="btn" > Apply now</button>}
-      {savedJobs.includes(currentUser._id)?  <button onClick={ Unsave}  className="btn2" > Unsave</button> : <button onClick={ Save}  className="btn2" > Save</button>  } 
+  <button onClick={ Apply} className="btn" > Apply now</button>
+  <button onClick={ Save}  className="btn2" > Save</button>  
         </div>
-       }  
+       
      </div>
      <div className="pencil"onClick={(handleClick)}>
      <div style={{marginRight:'10px'}}>
@@ -226,8 +215,8 @@ url={`autohire.com/jobs/${id}`}
             </ShowMoreText>
 <div className='offre_description_details'>
 <div className ='offre_box'>
-    <h3> Seniority Level</h3>
-    <p> {poste}</p>
+    <h3> Salary</h3>
+    <p> {salary}</p>
 </div>
 <div className ='offre_box'>
     <h3> Employement Type</h3>
@@ -239,7 +228,7 @@ url={`autohire.com/jobs/${id}`}
 </div>
 <div className ='offre_box'>
     <h3> Job Functions</h3>
-    <p> {type}</p>
+    <p> {poste}</p>
 </div>
     </div> 
 </div>

@@ -1,14 +1,13 @@
 import React,{ useState }  from 'react'
 import './App.css';
-import logo from './assets/logo.png'
+import logo from './assets/Linkedin-logo.png'
 import './Signup.css';
-import {url} from './BaseUrl';
-import axios from 'axios';
+import { db ,auth} from './firebase'
 import { useHistory } from 'react-router';
 import AutocompletePlace from './AutocompletePlace';
 import { useForm } from "react-hook-form";
 import 'react-phone-number-input/style.css'
-import ReCAPTCHA from "react-google-recaptcha";
+import firebase from 'firebase'
 import PhoneInput, { formatPhoneNumber, formatPhoneNumberIntl, isValidPhoneNumber } from 'react-phone-number-input'
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -26,56 +25,40 @@ function Signup () {
     
   
     const recaptchaRef = React.createRef();
-    const onSubmit = (data) => {
-        console.log(data)
-    
-        const hamma = {...data,
-             username : data.username,
-             firstName : data.firstN,
-             lastName : data.lastN,
-            // position : position ,
-            entreprise : data.company,
-             password : data.username,
-            role : data.type,
-            address:location.place_name,
-             picture : data.username,
-            // email : email,
-            // birthDate : birthDate,
-            
-             phoneNumber : data.phone,
-       }
-       console.log(hamma)
-        axios.post(`${url}user/`, 
-        {   username : data.username,
-            firstName : data.firstN,
-            lastName : data.lastN,
-            position : data.position ,
-           entreprise : data.company,
-            password : data.password,
-           role : data.type,
-           address:location.place_name,
-            picture : data.username,
-            email : data.email,
-           // birthDate : birthDate,
-           
-            phoneNumber : data.phone,})
-              .then((response) => {
-                console.log(response)
-            history.push('/login')
-            }, (error) => {
-                console.log(error);
-              });
-      };
-    
 
+      const onSubmit = (data) => {
+
+        auth.createUserWithEmailAndPassword(data.email, data.password)
+        .then(  
+          (userRecord) => {
+            var uid = userRecord.user.uid;
+            return firebase.firestore().collection('users').doc(uid)
+              .set({
+                user_uid: uid,
+                username : 'hamma',
+                firstName : data.firstN,
+                lastName : data.lastN,
+                position : data.position ,
+                company : data.company,         
+                role : data.type,
+                address:location.place_name,
+                phoneNumber : data.phone,              
+              })
+       }
+         ).then( 
+            history.push('/login')          
+          ).catch(error=> console.log(error));
+          
+          };    
+  
 return (
      <div >
      
      <div className="Signup">
      <div className='headerrr'>
-     <img style={{ height:'60px'}} src={logo} alt=""/>
-     <h1>Make the most of your professional life</h1>
+     <img style={{ height:'100px'}} src={logo} alt=""/>
 
+     <h1 style={{padding:'15px'}}>Make the most of your professional life</h1>
      </div>    
      
      <div className="formm" >
@@ -110,7 +93,7 @@ return (
 
 
         <label htmlFor="password">Password</label>
-                <input type="text" 
+                <input type="password" 
                        {...register("password", {
                         validate: (value) => regularExpression.test(value)
                       })} />
@@ -190,14 +173,9 @@ return (
                 <button type="submit" >Sign Up</button>
             </form>
             <div style={{marginTop:'8px'}} >
-            <p>Already on AutoHire? <a href='/login' className="aa"> Sign in</a></p>
+            <p>Already on Linkedin? <a href='/login' className="aa"> Sign in</a></p>
             </div>
-            <ReCAPTCHA
-        ref={recaptchaRef}
-        sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-        
-       
-      />
+         
      </div>  
      </div>
      </div>

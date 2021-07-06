@@ -14,7 +14,7 @@
 
 }
 .pencil{
-color: #eb0392;
+color: gray;
 height: 40px !important;
 width: 40px !important;
 cursor: pointer;
@@ -33,7 +33,7 @@ align-items: center;
  }
 
 .p_position:hover {
-  color: #eb0392;
+  color: #0a66c2;
   text-decoration: underline;
 }
 .pencil__icon{

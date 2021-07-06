@@ -13,12 +13,13 @@ import EventNoteIcon from '@material-ui/icons/EventNote';
 import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay';
 import InputOption from './InputOption';
 
+
 function Feed() {
     const user = useSelector(selectUser)
     const [input, setInput] = useState('');
     const [posts, setPosts] = useState([])
-    const userr = localStorage.getItem('user')
-    const currentUser = JSON.parse(userr);
+
+    const currentUser =  useSelector(selectUser);
     useEffect(() => {
         db.collection("posts").orderBy('timestamp', 'desc').onSnapshot(snapshot => (
           setPosts(snapshot.docs.map(doc => (

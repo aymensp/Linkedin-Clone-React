@@ -6,18 +6,18 @@ import HomeIcon from '@material-ui/icons/Home'
 import { Avatar } from '@material-ui/core'
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import BusinessCenterIcon from '@material-ui/icons/BusinessCenter'
-import ChatIcon from '@material-ui/icons/Message'
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import logo from './assets/logoHeader.png'
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import { useHistory } from 'react-router'
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import {url } from './BaseUrl';
+import { useSelector } from 'react-redux';
+import { selectUser } from './features/userSlice';
 import VideocamIcon from '@material-ui/icons/Videocam';
+import { configureStore } from '@reduxjs/toolkit'
+
 function Header() {
-    const user = localStorage.getItem('user')
-    const currentUser = JSON.parse(user);
+    const currentUser =  useSelector(selectUser);
     let history = useHistory()
     const [anchorEl, setAnchorEl] = React.useState(null);
     const Capitalize =(str) =>{
@@ -40,6 +40,7 @@ function Header() {
     const navigate = (route) => {
    history.push(`${route}`)
     }
+    console.log(currentUser)
     return (
         <div className="header">
             <div className="header__left">
@@ -56,7 +57,7 @@ function Header() {
                 <HeaderOption Icon={HomeIcon} title="Home" onClick={()=>navigate('/')}/>
                 <HeaderOption Icon={SupervisorAccountIcon} title="My Network"/>
                 <HeaderOption Icon={BusinessCenterIcon} title="Jobs" onClick={()=>navigate('jobs')}/>
-                <HeaderOption Icon={VideocamIcon} title="Video Call" onClick={()=>navigate('video')}/>
+                <HeaderOption Icon={VideocamIcon} title="Video Call"/>
                
                 <HeaderOption avatar={true} title="Me" 
                 onClick={(handleClick)}
@@ -74,14 +75,14 @@ function Header() {
                 <Avatar src={`${url}images/${currentUser.username}.jpeg`}  >{currentUser?.username[0]}</Avatar>
                 <div style={{marginLeft:'10px'}}>
                     <h3 style={{lineHeight:'1.3',fontWeight:'bold'}}>{Capitalize(currentUser.firstName) +"  "+ Capitalize(currentUser.lastName)}</h3>  
-                    <p>{Capitalize(currentUser.position) +" at "+ Capitalize(currentUser.entreprise)}</p>
+                    <p>{Capitalize(currentUser.position) +" at "+ Capitalize(currentUser.company)}</p>
                 </div>
                 </div>
-                <button onClick={()=>navigate('profile')}  style={{cursor:'pointer',fontWeight:'bold',fontSize:'15px',width:'90%',color:'#eb0392',backgroundColor:'white',padding:'5px', margin:'10px' , borderRadius:'15px' ,border:'none',boxShadow:'inset 0 0 0 1px #eb0392'}}>View Profile</button>
+                <button onClick={()=>navigate('profile')}  style={{cursor:'pointer',fontWeight:'bold',fontSize:'15px',width:'90%',color:'#0a66c2',backgroundColor:'white',padding:'5px', margin:'10px' , borderRadius:'15px' ,border:'none',boxShadow:'inset 0 0 0 1px #0a66c2'}}>View Profile</button>
                 </div>
-                <MenuItem style={{fontSize:'13px',color:'gray'}} onClick={()=>navigate('/myJobs')}  >My Jobs</MenuItem>
-                <MenuItem style={{fontSize:'13px',color:'gray'}} onClick={logoutOfApp} >Settings & Privacy</MenuItem>
-                <MenuItem style={{fontSize:'13px',color:'gray'}} onClick={logoutOfApp} >Languages</MenuItem>
+                <MenuItem style={{fontSize:'13px',color:'gray'}}  >My Jobs</MenuItem>
+                <MenuItem style={{fontSize:'13px',color:'gray'}} >Settings & Privacy</MenuItem>
+                <MenuItem style={{fontSize:'13px',color:'gray'}}  >Languages</MenuItem>
                 <MenuItem style={{fontSize:'13px',color:'gray'}} onClick={logoutOfApp} >Logout</MenuItem>
                 
             </Menu>
@@ -90,7 +91,7 @@ function Header() {
               <div className="header__right">
               <HeaderOption Icon={SupervisorAccountIcon} title="My Network"/>
               <HeaderOption Icon={BusinessCenterIcon} title="Jobs" onClick={()=>navigate('jobsSettings')}/>
-              <HeaderOption Icon={VideocamIcon} title="Video Call" onClick={()=>navigate('video')}/>
+              <HeaderOption Icon={VideocamIcon} title="Video Call" />
             
               <HeaderOption avatar={true} title="Me" 
               onClick={(handleClick)}
@@ -108,14 +109,14 @@ function Header() {
                 <Avatar src={`${url}images/${currentUser.username}.jpeg`}    >{currentUser?.username[0]}</Avatar>
                 <div onClick={()=>navigate('profile') } style={{marginLeft:'10px'}}>
                     <h3 style={{lineHeight:'1.3',fontWeight:'bold'}}>{Capitalize(currentUser.firstName) +" "+ Capitalize(currentUser.lastName)}</h3>  
-                    <p>{Capitalize(currentUser.position) +" at "+ Capitalize(currentUser.entreprise)}</p>
+                    <p>{Capitalize(currentUser.position) +" at "+ Capitalize(currentUser.company)}</p>
                 </div>
                 
                 </div>
-                <button onClick={()=>navigate('profile')} style={{cursor:'pointer',fontWeight:'bold',fontSize:'15px',width:'90%',color:'#eb0392',backgroundColor:'white',padding:'5px', margin:'10px' , borderRadius:'15px' ,border:'none',boxShadow:'inset 0 0 0 1px #eb0392'}}>View Profile</button>
+                <button onClick={()=>navigate('profile')} style={{cursor:'pointer',fontWeight:'bold',fontSize:'15px',width:'90%',color:'#0a66c2',backgroundColor:'white',padding:'5px', margin:'10px' , borderRadius:'15px' ,border:'none',boxShadow:'inset 0 0 0 1px #0a66c2'}}>View Profile</button>
                 </div>
                 <MenuItem style={{fontSize:'13px',color:'gray'}} onClick={()=>navigate('/jobsSettings')}  >Posted Jobs</MenuItem>
-                <MenuItem style={{fontSize:'13px',color:'gray'}} onClick={()=>navigate('/emp')}  >employees</MenuItem>
+                <MenuItem style={{fontSize:'13px',color:'gray'}}   >employees</MenuItem>
 
                 <MenuItem style={{fontSize:'13px',color:'gray'}}  >Settings & Privacy</MenuItem>
                 <MenuItem style={{fontSize:'13px',color:'gray'}} >Languages</MenuItem>

@@ -5,9 +5,8 @@ import { selectUser } from './features/userSlice'
 import './Sidebar.css'
 import {url } from './BaseUrl';
 function Sidebar() {
-    const user = useSelector(selectUser)
-    const userr = localStorage.getItem('user')
-    const currentUser = JSON.parse(userr);
+ 
+    const currentUser = useSelector(selectUser)
     const recentItem = (topic) => (
         <div className="sidebar__recentItem">
             <span className="sidebar__hash">#</span>

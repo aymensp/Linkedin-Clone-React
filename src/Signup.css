@@ -16,7 +16,7 @@
         font-size: 33px;
         line-height: 1.25;
         font-weight: 500;
-        color:#eb0392;
+        color:#0a66c2;
        
     }
   
@@ -45,11 +45,11 @@
       }
       .formm > form >label::after{
        content: '*';
-       color: #eb0392;
+       color: #0a66c2;
        margin-left: 3px;
       }
       .p {
-        color: #bf1650;
+        color: #004182;
         margin-top: -10px;
         margin-bottom: 10px;
         font-weight: 700;
@@ -60,7 +60,7 @@
         content: "⚠ ";
       }
       .formm > form > input {
-        width: 96%;
+        width: 98%;
         height: 30px;
         font-size: 15px;
         font-weight: 500;
@@ -68,7 +68,7 @@
         margin-bottom: 10px;
         border-radius: 3px;
         border: 1px solid black;
-        outline-color: #eb0392;
+        outline-color: #0a66c2;
       }
     .formm > form > textarea {
         font-size: 15px;
@@ -80,14 +80,14 @@
         margin-bottom: 17px;
         border: 1px solid black;
         overflow: scroll;
-        outline-color: #eb0392;
+        outline-color: #0a66c2;
         font-family: 'apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;
       
     } 
       .formm > form > select {
-        width: 96%;
+        width: 101%;
         height: 40px;
         font-size: 15px;
         font-weight: 500;
@@ -95,7 +95,7 @@
         margin-bottom: 17px;
         border-radius: 3px;
         border: 1px solid black;
-        outline-color: #eb0392;
+        outline-color: #0a66c2;
       }
       .formm > form > input:hover{
       
@@ -107,8 +107,8 @@
         font-size: large;
         font-weight: bold;
         color: #fff;
-        background-color: #eb0392;
-        border-color: #eb0392;
+        background-color: #0a66c2;
+        border-color: #0a66c2;
         border-radius: 25px;
         border: 0;
       }
@@ -116,6 +116,6 @@
       
       .formm > form > button:hover {
       
-        background: #c20078;
+        background: #004182;
         border: none;
       }

@@ -1,58 +1,28 @@
-import React , { useState ,useEffect} from 'react'
+import React , { useState } from 'react'
 import './Profile.css';
 import './Sidebar.css';
 import Header from './Header';
-import logo from './assets/logoHeader.png'
 import CreateTwoToneIcon from '@material-ui/icons/CreateTwoTone';
+import logo from './assets/company.png'
 import './App.css';
-import Sidebar from './Sidebar';
-import {url} from './BaseUrl';
 import Modal from './uploadPdf'
-import { Avatar, Icon } from '@material-ui/core';
-import Auxiliary from './Auxiliary'
-import axios from 'axios';
-import Update from './updateProfile';
+import { Avatar } from '@material-ui/core';
 import { useHistory } from 'react-router';
+import { useSelector } from 'react-redux';
+import { selectUser } from './features/userSlice';
 
 function Profile() {
  const [purchasing ,setPurchasing] = useState(false);
  const [purchasing1 ,setPurchasing1] = useState(false);
- const userr = localStorage.getItem('user')
- const currentUser = JSON.parse(userr);
- const [user ,setUser] = useState(currentUser);
- 
- let history =useHistory();
- const Navigate =(industry)=>{
-    history.push({pathname:'/company',
-     search:  'industry'+'='+industry
-     });
-       }
- useEffect(() => {
-
-      axios.post(`${url}user/me`, {
-        username: currentUser.username,
-
-      }).then( res => {
-     setUser(res.data) ;
-     })
-
-    }
-
-,[])
+ const user = useSelector(selectUser)
+    
 const Capitalize =(str) =>{
     return str.charAt(0).toUpperCase() + str.slice(1);
     }
-const checkResume = (resume) => {
-
-if ((resume === "NORESUME") || (resume === "null") ){
-   return false;
-}
-return true;
-}
 const profileCards = (
 <div style={{borderRadius:'10px',backgroundColor:'white' ,paddingTop:'10px',paddingBottom:'10px',border:'1px solid lightgray'}}>
 
-<Modal experience={user.experience} skills={user.skills} education={user.education} show={purchasing} modalClosed={()=>setPurchasing(false)}/>
+<Modal  show={purchasing} modalClosed={()=>setPurchasing(false)}/>
 
 <div className="profile__content_top" style={{marginBottom:'0px',borderRadius:'0px',border:'0px'}}>
 
@@ -65,7 +35,7 @@ const profileCards = (
             <div onClick={()=>setPurchasing(true) }className="pencil" style={{marginTop:'13px'}}>
                 <CreateTwoToneIcon className="pencil__icon" />
                 </div>
-                </div><p style={{fontSize:"13px" , lineHeight: '1.3333' ,margin:'20px'}}>{user.experience}</p>
+                </div><p style={{fontSize:"13px" , lineHeight: '1.3333' ,margin:'20px'}}>Product Manager Hong KongFemale Entrepreneurs Worldwide June - Sept. 2020Spearheaded FEW's Affiliation Marketing Platform development projectAdvised upper management to use ''Post Affiliate Pro'' to track affiliate programs & networks.Responsible for the reporting and documentation of all development activitiesManaged a whole development team (Front End, Back End, Mobile, Designers).Drove innovation and new product development.Front End Developer Tunis, TunisiaConvergen Agency Aug. 2019 - June. 2020Worked on several Marketing Technology Saas applications: Advisely and Cartifio.Developed and maintained critical components of Sass Applications using React componentsTranslated design team's UX wireframes and mockups into responsive, interactive features using ReactJSEnsured proper documentation and reports in all stages of product life cyclesPerformed bug fixes and code reviewsDeveloped app integrations with REST and other APIs for Shopify, Facebook Ads and Google Analytics</p>
 </div>
 <div className="profile__content_top" style={{marginBottom:'0px',borderRadius:'0px',borderRight:'0px',borderLeft:'0px'}}>
 
@@ -73,7 +43,7 @@ const profileCards = (
                     <p style={{fontSize:"18px", lineHeight: '1.3333' ,marginLeft:'20px' ,marginTop:'20px'}}>
                     Education
                     </p>
-             <p style={{fontSize:"13px" , lineHeight: '1.3333' ,margin:'20px'}}>{user.education} </p>
+             <p style={{fontSize:"13px" , lineHeight: '1.3333' ,margin:'20px'}}>Master's in Software Engineering Tunis, TunisiaEsprit School of Engineering Sep. 2018 - June 2021Bachelor of Computer Science Sousse, TunisiaHigher Institute of Applied Sciences and Technology of Sousse Sep. 2014 - June. 2018Computer Forensics / Network Security Certification Spokane, W ASpokane Falls Community College – Thomas Jefferson Scholarship Sep. 2016 - June 2017 </p>
 </div>
 <div className="profile__content_top" style={{marginBottom:'0px' ,border:'0px',borderRadius:'0px'}}>
 
@@ -81,17 +51,10 @@ const profileCards = (
                     <p style={{fontSize:"18px", lineHeight: '1.3333' ,marginLeft:'20px' ,marginTop:'20px'}}>
                     Skills
                     </p>
-              <p style={{fontSize:"13px" , lineHeight: '1.3333' ,margin:'20px'}}>{user.skills}</p>
+              <p style={{fontSize:"13px" , lineHeight: '1.3333' ,margin:'20px'}}>Coding Javascript · PHP · C# · JavaFront End ReactJS · Redux · Hooks · GraphQL · Axios · Sass · Bootstrap · HTML5 · CSS3 · UX/UI ConceptsBack End NodeJS · ExpressJS · MongoDB · Firebase · MySQL · Rest APIsWork ExperienceProduct Manager Hong KongFemale Entrepreneurs Worldwide June - Sept. 2020Spearheaded FEW's Affiliation Marketing Platform development projectAdvised upper management to use ''Post Affiliate Pro'' to track affiliate programs & networks.Responsible for the reporting and documentation of all development activitiesManaged a whole development team (Front End, Back End, Mobile, Designers).Drove innovation and new product development.Front End Developer Tunis, TunisiaConvergen Agency Aug. 2019 - June. 2020Worked on several Marketing Technology Saas applications: Advisely and Cartifio.Developed and maintained critical components of Sass Applications using React componentsTranslated design team's UX wireframes and mockups into responsive, interactive features using ReactJSEnsured proper documentation and reports in all stages of product life cyclesPerformed bug fixes and code reviewsDeveloped app integrations with REST and other APIs for Shopify, Facebook Ads and Google Analytics</p>
 </div>
 </div>
 );
-const hamma = checkResume(user.resume);
-const NavigatetoCv = () => {
-    history.push({
-        pathname: '/resumeCreator',
-
-    });
-}
 return(
 <div className="profile">
 
@@ -103,10 +66,9 @@ return(
                 <div className="profile__content_top">
                 <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&ixid=MXwxMjA3fDBBMHxleHBsb3JlLWZlZWRBMXx8fGVufDB8fHw%3D&w=1000&q=80" alt=""/>
                 <div style={{display:'flex'}}>
-                <Avatar  src={`${url}images/${currentUser.username}.jpeg`} className="profile__content_top__avatar"/>
+                <Avatar  className="profile__content_top__avatar"/>
                 <div style={{flex:'0.97' }}>
                 </div>
-                <Update firstName={currentUser.firstName} lastName={currentUser.lastName} position={currentUser.position} entreprise={currentUser.entreprise} address={currentUser.address} show={purchasing1} modalClosed={()=>setPurchasing1(false)}/>
 
                 <div className="pencil" onClick={()=>setPurchasing1(true) }>
                 <CreateTwoToneIcon className="pencil__icon" />
@@ -115,12 +77,12 @@ return(
                 <div style={{display : 'flex' ,marginLeft:"20px"}}>
                 <div style={{width:'500px'}} >
                 <p style={{ fontSize: '24px',lineHeight: '1.5'}}>{Capitalize(user.firstName) +" "+ Capitalize(user.lastName)}</p>
-                <p style={{fontSize:"18px" , maxWidth : '450px' , lineHeight: '1.3333' }}>{Capitalize(user.position) +" at "+ Capitalize(user.entreprise)}</p>
+                <p style={{fontSize:"18px" , maxWidth : '450px' , lineHeight: '1.3333' }}>{Capitalize(user.position) +" at "+ Capitalize(user.company)}</p>
                 <p style={{fontSize : "16px",  lineHeight: '1.5' , marginTop : '3px'}}> {Capitalize(user.address)}</p>
                 </div>
                 <div  style={{display : 'flex',marginLeft:"20px"  ,height:'50px' }}>
-                <img style={{ height:'30px' , width: '30px' , marginRight :'10px' }} src={`${url}images/${currentUser.entreprise}.png`}/>
-                <p className="p_position" onClick={()=>Navigate(user.entreprise)}  > {Capitalize(user.entreprise)} </p>
+                <img style={{ height:'30px' , width: '30px' , marginRight :'10px' }} src={logo}/>
+                <p className="p_position"  > {Capitalize(user.company)} </p>
                 </div>
                 </div>
                 </div>
@@ -142,24 +104,7 @@ return(
                  NodeJS, MySQL, MongoDB, REST APIs, ExpressJS, GraphQL, Git
                 </p>
                 </div>
-               {  hamma ? profileCards :
-                <Auxiliary>
-<Modal experience={user.experience} skills={user.skills} education={user.education} show={purchasing} modalClosed={()=>setPurchasing(false)}/>
-<div className="profile__content_top" style={{padding : '10px',alignItems: 'center' }}>
-<button style={{backgroundColor:'#eb0392',border:'none' , color : 'white' ,borderRadius :'10px', alignItems: 'center',width :'300px' ,height:'30px'}}
-onClick={()=>setPurchasing(true)}
-> Upload Resume To update your Profile</button>
-<button style={{ backgroundColor: '#eb0392', border: 'none', 'margin': '10px', color: 'white', borderRadius: '10px', alignItems: 'center', width: '300px', height: '30px' }}
-                                    onClick={
-                                        () => NavigatetoCv()
-
-
-
-
-                                    }
-                                > Create Your Resume On Our Website</button>
-</div>
-</Auxiliary>
+               {  profileCards 
               }
         </div>
 

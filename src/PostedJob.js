@@ -19,7 +19,7 @@ return(
        <aside>
      
       <h2>
-        <BorderColorIcon style={{color:'#eb0392',paddingRight:'5px'}}/>
+        <BorderColorIcon style={{color:'gray',paddingRight:'5px'}}/>
 
         
         Manage Job Posting</h2>
@@ -30,13 +30,13 @@ return(
       <div onClick={()=>setRh('applied')}>
       <a>Opened Jobs</a>
       </div>
-     < div onClick={()=>setRh('saved')} style={{color:'#eb0392',borderLeft:'3px solid #eb0392'}}>
-      <a style={{color:'#eb0392'}} >Closed Jobs</a>
+     < div onClick={()=>setRh('saved')} style={{color:'#0a66c2',borderLeft:'3px solid #0a66c2'}}>
+      <a style={{color:'#0a66c2'}} >Closed Jobs</a>
     </div> 
     
     </Auxiliary> :
-     <Auxiliary> < div onClick={()=>setRh('applied')} style={{color:'#eb0392',borderLeft:'3px solid #eb0392'}}>
-     <a style={{color:'#eb0392'}} >Opened Jobs</a>
+     <Auxiliary> < div onClick={()=>setRh('applied')} style={{color:'#0a66c2',borderLeft:'3px solid #0a66c2'}}>
+     <a style={{color:'#0a66c2'}} >Opened Jobs</a>
    </div>  
    <div onClick={()=>setRh('saved')}>
      <a>Closed Jobs</a>

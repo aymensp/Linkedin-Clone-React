@@ -9,14 +9,10 @@
   width: 400px;
   border-radius: 10px ;
 }
-.background {
-  padding: 40px;
-  height: 900px !important;
-  background-image: url('https://static.licdn.com/sc/h/64xk850n3a8uzse6fi11l3vmz');
-}
+
 .login > img {
 margin: 50px;
-  height: 70px;
+  height: 120px;
 
 }
 
@@ -33,7 +29,7 @@ margin: 50px;
   padding-left: 10px;
   margin-bottom: 20px;
   border-radius: 5px;
-  outline-color: #eb0392;
+  outline-color: #0a66c2;
   border: 1px solid black;
 }
 .login > form > input:hover{
@@ -45,12 +41,12 @@ margin: 50px;
 .aa{
   font-weight: 700;
   text-decoration: none;
-  color: #eb0392;
+  color:#0a66c2;
   border-radius: 15px;
   padding: 4px;
 }
 .aa:hover{
-  background-color: #e6cadb;
+  background-color: #c3e1ff;
   text-decoration: underline;
 }
 .login > form > button {
@@ -59,14 +55,14 @@ margin: 50px;
   font-size: large;
   font-weight: 400;
   color: #fff;
-  background-color: #eb0392;
-  border-color: #eb0392;
+  background-color: #0a66c2;
+  border-color: #0a66c2;
   border-radius: 25px;
   border: 0;
   margin-bottom: 30px;
 }
 
 .login > form > button:hover {
-  background: #c20078;
+  background: #004182;
   border: none;
 }

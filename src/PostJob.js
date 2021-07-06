@@ -4,6 +4,8 @@ import './App.css';
 import './PostJob.css';
 import { db } from './firebase'
 import firebase from 'firebase'
+import { useSelector } from 'react-redux';
+import { selectUser } from './features/userSlice';
 import { useHistory } from 'react-router';
 import AutocompletePlace from './AutocompletePlace';
 import { useForm } from "react-hook-form";
@@ -11,7 +13,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function PostJob () {
     const userr = localStorage.getItem('user')
-    const currentUser = JSON.parse(userr); 
+    const currentUser = useSelector(selectUser)
     const [location, setLocation] = useState('');
     let history = useHistory()
     const {
@@ -21,23 +23,21 @@ function PostJob () {
     } = useForm();
     
     const onSubmit = (data) => {
-      const hamma = {
-      description : data.description,
-      position : data.position,
-      salary: data.salary,
-      titre:data.title,  
-      creator: currentUser.username,
-      company : currentUser.entreprise,
-      jobTime: data.type,
-      address:location.place_name,
-      longitude:location.geometry.coordinates[0],
-      latitude:location.geometry.coordinates[1],
-      createdAt: firebase.firestore.FieldValue.serverTimestamp()
-    }
+  
       db.collection('jobs').add({
-      hamma
+        description : data.description,
+        position : data.position,
+        salary: data.salary,
+        titre:data.title,  
+        creator: currentUser.username,
+        company : currentUser.entreprise,
+        jobTime: data.type,
+        address:location.place_name,
+        longitude:location.geometry.coordinates[0],
+        latitude:location.geometry.coordinates[1],
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
     });
-   
+   history.push('/jobsSettings')
     };
        
 
