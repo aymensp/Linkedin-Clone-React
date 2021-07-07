@@ -45,7 +45,7 @@
 
 ### Created & Maintained By
 
-[@Aymensp](https://github.com/aymensp) , 
+[@Aymensp](https://github.com/aymensp) 
 
 ## Installation
 
@@ -61,5 +61,3 @@ npm start
 ```
 
 
-
-```
