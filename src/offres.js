@@ -6,25 +6,21 @@ import FlipMove from 'react-flip-move'
 import Header from "./Header"
 import OffreCardsLeft from "./offreCardsLeft"
 import OffreCardRight from "./offreCardRight"
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import TablePagination from "@material-ui/core/TablePagination";
 import TableContainer from "@material-ui/core/TableContainer";
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions'
 import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css'
+import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions'
 import Auxiliary from "./Auxiliary"
 import Skeleton from '@material-ui/lab/Skeleton';
 import { db } from './firebase'
+import TablePagination from "@material-ui/core/TablePagination";
 
 function Offres() {
   const [posts, setPosts] = useState([]);
   mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_API_KEY;
   const mapWrapper= useRef();
   const div= useRef();
-  //close menu
   const [page, setPage] = React.useState(0);
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -47,9 +43,8 @@ function Offres() {
     },
 
  [])
-
 let tabs =  <Auxiliary>
-  <Tabs  >   
+<Tabs  >   
 <TabNav>
 <TableContainer >  
  <header style={{borderBottom:'1px solid rgba(0,0,0,0.08)',position:'sticky', zIndex:'1'}}>
@@ -196,9 +191,12 @@ let tabs =  <Auxiliary>
 </TabContent>
 </Tabs>
 </Auxiliary>    
+
+
 if (posts.length!=0)
 {
-tabs =  <Tabs selected='1' onLeaveTab={(currentIndex, nextIndex) => { console.log("leaveTab", currentIndex, nextIndex) }}
+
+tabs =  <Tabs selected='1'  tabName='tab1' onLeaveTab={(currentIndex, nextIndex) => { console.log("leaveTab", currentIndex, nextIndex) }}
 onShowTab={(e) => { 
 
   const map = new mapboxgl.Map({
@@ -220,7 +218,8 @@ onShowTab={(e) => {
     })
  
     // can be address in form setOrigin("12, Elm Street, NY")
-}}>        
+}}
+>        
 <TabNav>
 <TableContainer >  
  <header style={{borderBottom:'1px solid rgba(0,0,0,0.08)',position:'sticky', zIndex:'1'}}>
@@ -295,7 +294,7 @@ onShowTab={(e) => {
    return (
       <div className="offres">
        <Header/>    
-         {tabs}
+       {tabs}
      </div>           
     )
   }

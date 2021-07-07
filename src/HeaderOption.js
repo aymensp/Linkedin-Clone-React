@@ -15,13 +15,13 @@ function HeaderOption({ avatar, Icon,Border, title, onClick }) {
         <div onClick={onClick} className="headerOption__border">
             {Border && <Border className="headerOption__icon" />}
             {avatar && (
-            <Avatar src={`${url}images/${currentUser.username}.jpeg`} className="headerOption__icon">{currentUser?.username[0]}</Avatar>
+            <Avatar  className="headerOption__icon">{currentUser?.username[0]}</Avatar>
             )}
         <h3 className="headerOption__title">{title}</h3>
         </div> :  <div onClick={onClick} className="headerOption">
         {Icon && <Icon className="headerOption__icon" />}
         {avatar && (
-        <Avatar src={`${url}images/${currentUser.username}.jpeg`} className="headerOption__icon">{currentUser?.username[0]}</Avatar>
+        <Avatar  className="headerOption__icon">{currentUser?.username[0]}</Avatar>
         )}
        <h3 className="headerOption__title">{title}</h3>
     </div> }

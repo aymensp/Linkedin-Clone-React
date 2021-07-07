@@ -47,32 +47,7 @@ import Signup from './Signup';
      <PrivateRoute exact path="/postJob" roles='Human Resource' component={PostJob}/>
   
       </Switch>
-      {/* <Chat />
-     <Switch history={history}>
-     <Route exact path ="/login"  component={Login}/>
-     <Route exact path ="/signup"  component={Signup}/>
-
-     <PrivateRoute exact path="/"  component={Acceuil}/>
-     <PrivateRoute  path="/jobs"  roles='test' component={Offres}/>
-     <PrivateRoute exact path="/profile"  component={Profile}/>
-     <PrivateRoute exact path="/jobsSettings" roles='Human Resource' component={PostedJob}/>
-     <PrivateRoute exact path="/myJobs"  component={MyJobs}/>
-     <PrivateRoute exact path="/postJob" roles='Human Resource' component={PostJob}/>
-     <PrivateRoute path="/company"  component={Company} />
-     <PrivateRoute exact path="/emp" roles='Human Resource' component={EmployeeRH}/>
-     <PrivateRoute path="/test"   component={Test} />
-     <PrivateRoute path="/applicants"  roles='Human Resource' component={Applicants} />
-     <Route path="/chat" component={Chat}/>
-     <PrivateRoute exact path="/video"  component={AppV}/>
-     <PrivateRoute exact path="/admin" roles='ADMIN' component={DashboardAut}/>
-     <PrivateRoute path="/listcompany" roles='ADMIN' component={ListCompany} />
-     <PrivateRoute path="/listTest" roles='ADMIN' component={ListTest} />
-     <PrivateRoute path="/addcompany" roles='ADMIN' component={addCompany} />
-     <PrivateRoute path="/addTest" roles='ADMIN' component={addTest} />
-     <PrivateRoute exact path="/gotot"  component={GotoT}/>
-     <Route path="/resumeCreator" component={resumeCreator} />
-
-     </Switch> */}
+  
    </div>
   );
 }

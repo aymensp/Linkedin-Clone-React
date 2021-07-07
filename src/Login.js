@@ -10,7 +10,6 @@ function Login() {
   let history = useHistory();
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
-    const [user,setUser] = useState();
     const dispatch = useDispatch();
 
     const loginToApp = e => {

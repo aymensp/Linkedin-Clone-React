@@ -14,7 +14,6 @@ import {url } from './BaseUrl';
 import { useSelector } from 'react-redux';
 import { selectUser } from './features/userSlice';
 import VideocamIcon from '@material-ui/icons/Videocam';
-import { configureStore } from '@reduxjs/toolkit'
 
 function Header() {
     const currentUser =  useSelector(selectUser);
@@ -40,7 +39,7 @@ function Header() {
     const navigate = (route) => {
    history.push(`${route}`)
     }
-    console.log(currentUser)
+
     return (
         <div className="header">
             <div className="header__left">
