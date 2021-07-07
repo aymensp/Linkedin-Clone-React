@@ -19,21 +19,14 @@
 ### Screenshots
 
 <p float="left">
-  <img src="https://user-images.githubusercontent.com/10207753/93623053-90374100-f9f7-11ea-88bf-09c3df537ab0.png" height="500" /> 
-    <img src="https://user-images.githubusercontent.com/10207753/93623064-94635e80-f9f7-11ea-8b68-33ce48bf8023.png" height="500" /> 
-        <img src="https://user-images.githubusercontent.com/10207753/93623084-9decc680-f9f7-11ea-9992-a6e3b09c819e.png" height="500" /> 
-                <img src="https://user-images.githubusercontent.com/10207753/93623089-a0e7b700-f9f7-11ea-93ed-eaa8ae3b3c55.png" height="500" /> 
-                  <img src="https://user-images.githubusercontent.com/10207753/93623098-a2b17a80-f9f7-11ea-9040-3ca49d985e81.png" height="500" /> 
- 
-   <img src="https://user-images.githubusercontent.com/10207753/95010266-4ed2a280-0641-11eb-984f-2cbfb5ca49f9.png" height="500" /> 
-   <img src="https://user-images.githubusercontent.com/10207753/96955432-fccdc000-150e-11eb-91c0-7d0f0b3e75b2.png" height="500" />
-        <img src="https://user-images.githubusercontent.com/10207753/96955435-ff301a00-150e-11eb-94dc-b40f57bbd4e5.png" height="500" /> 
-   
-   <img src="https://user-images.githubusercontent.com/10207753/95883416-5528f300-0d94-11eb-8f5c-df06548bba54.png" height="500" /> 
-<img src="https://user-images.githubusercontent.com/10207753/94138637-dc640480-fe81-11ea-93e1-2cb810ccfa02.png" height="500" /> 
-       <img src="https://user-images.githubusercontent.com/10207753/94138675-e71e9980-fe81-11ea-99f8-e5c191012a35.png" height="500" /> 
-     <img src="https://user-images.githubusercontent.com/10207753/94138657-e259e580-fe81-11ea-875e-50600daa5c74.png" height="500" /> 
-             <img src="https://user-images.githubusercontent.com/10207753/94139234-bc811080-fe82-11ea-8f07-d384f12d2801.png" height="500" /> 
+  <img src="https://github.com/aymensp/Linkedin-Clone-React/blob/master/media/Login.png" height="500" /> 
+    <img src="https://github.com/aymensp/Linkedin-Clone-React/blob/master/media/Signup.png" height="500" /> 
+        <img src="https://github.com/aymensp/Linkedin-Clone-React/blob/master/media/Profile.png" height="500" /> 
+                <img src="https://github.com/aymensp/Linkedin-Clone-React/blob/master/media/Upload%20resume.png" height="500" /> 
+                  <img src="https://github.com/aymensp/Linkedin-Clone-React/blob/master/media/addJob.png" height="500" /> 
+
+   <img src="https://github.com/aymensp/Linkedin-Clone-React/blob/master/media/mapboxPlaces.png" height="500" /> 
+<img src="https://github.com/aymensp/Linkedin-Clone-React/blob/master/media/commuteToWork.png" height="500" /> 
   
   <br />
 </p>
@@ -50,13 +43,6 @@
 [firebase_auth :](https://pub.dev/packages/firebase_auth) Firebase Authentication aims to make building secure authentication systems easy, while improving the sign-in and onboarding experience for end users. It provides an end-to-end identity solution, supporting email and password accounts, phone auth, and Google, Twitter, Facebook, and GitHub login, and more.
 
 
-
-### # The Clean Architecture [proposed by our friendly Uncle Bob](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
-
-<p float="left">
-  <img src="https://user-images.githubusercontent.com/10207753/93004894-e8d48d00-f564-11ea-9f34-8614c783e98a.jpg" height="400" /> 
-    <p/>
-    
 ### Created & Maintained By
 
 [@Aymensp](https://github.com/aymensp) , 
@@ -74,38 +60,6 @@ then  run the project
 npm start
 ```
 
-## Docker
-
- les commandes principales pour utiliser une stack Docker Compose;
-
-pour  dÈmarrer l'ensemble des conteneurs en arriËre-plan
-```
-docker-compose up -d
-```
-
-pour   voir le status de l'ensemble de votre stack
-```
-docker-compose ps 
-```
-pour afficher les logs de votre stack:
-```
-docker-compose logs -f --tail 5 
-```
-
-pour arrÍter l'ensemble des services d'une stack :
-```
-docker-compose stop
-```
-pour dÈtruire l'ensemble des ressources d'une stack:
-```
-docker-compose down 
-```
-
-pour valider la syntaxe de votre fichier docker-compose.yml:
-
-```
-docker-compose config
-```
 
 
 ```
